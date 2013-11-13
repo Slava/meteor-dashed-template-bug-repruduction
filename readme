@@ -1,0 +1,24 @@
+Bug: Template with a dash ('-') in name doesn't get compiled
+
+Steps:
+1. Run `meteor`
+2. Look for errors from the build step
+
+Expected result:
+App compiles and renders "Hello here!"
+
+Actual result:
+Error from the build step:
+
+While building the application:
+packages/spacebars/spacebars.js:206: Expected identifier, number, string, boolean, or null, found "dash}" at line 1, offset 10 in <body> (compiling app.html)
+  at error (packages/spacebars/spacebars.js:206)
+  at expected (packages/spacebars/spacebars.js:209)
+  at scanArg (packages/spacebars/spacebars.js:161)
+  at Object.Spacebars.parseStacheTag (packages/spacebars/spacebars.js:255)
+  at Object.Spacebars.parse (packages/spacebars/spacebars.js:424)
+  at Object.Spacebars.compile (packages/spacebars/spacebars.js:614)
+  at Object.html_scanner._handleTag (packages/compileTemplates/plugin/html_scanner.js:167)
+  at Object.html_scanner.scan (packages/compileTemplates/plugin/html_scanner.js:102)
+  at Package (packages/compileTemplates/plugin/compile-templates.js:17)
+
